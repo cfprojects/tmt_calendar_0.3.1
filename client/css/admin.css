@@ -1,0 +1,117 @@
+body, html {
+	background-color: #EEEEEE;
+	color: #2D2D2D !important;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+div#container {
+	background-color: #F7F7F7;
+	border: 1px solid #404040;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+div#menu {
+	margin-bottom: 10px;
+	margin-left: -10px;
+}
+
+div.paging {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+div.reportContainer {
+	max-width: 90%;
+	min-width: 50%;
+}
+
+fieldset {
+	margin-top: 10px;
+}
+
+table.report {
+	border: 1px solid #404040;
+	border-collapse: collapse;
+	margin-bottom: 5px;
+	white-space: nowrap;
+	width: 100%;
+}
+
+table.report a,
+table.report a:link,
+table.report a:hover {
+	color: #255094;
+}
+
+table.report caption {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+table.report td {
+	padding: 3px;
+}
+
+table.report td.numberCell{
+	padding-right: 5px;
+	text-align: right;
+}
+
+table.report th {
+	background-color: #D7D7E5;
+	border-bottom: 1px solid #404040;
+	cursor: pointer;
+	padding: 6px;
+	padding-left: 3px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+table.smallReport {
+	width: 50%;
+}
+
+.hidden {
+	display: none;
+}
+
+#searchForm fieldset {
+	margin-bottom: 10px;
+}
+
+/* Spry related rules */
+div.loader {
+	margin: 20px;
+}
+
+div.loader div {
+	font-weight: bold;
+	text-align: center;
+}
+
+.rowEven {
+	background-color: #E6E6F2;
+}
+
+.rowHover {
+	cursor: pointer;
+}
+
+.rowHover, .rowSelected {
+	background-color: #A4BFF0 !important;
+}
+
+.rowOdd {
+	background-color: #F4F4F4;
+}
+
+.rowSelected {
+	color: #255094;
+}
+
+.SpryHiddenRegion {
+	visibility: hidden;
+}

@@ -1,0 +1,115 @@
+@import url("../../../css/base.css");
+
+/* Main container */
+div.tmtCal {
+	background-color: #FFFFFF;
+	border: 1px solid #98AEEA;
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+/* Main table */
+table.tmtCalTable {
+	border: 1px solid #98AEEA;
+	border-collapse: collapse;
+	padding: 4px;
+	table-layout: fixed;
+	width: 100%;
+}
+
+/* Current month's name */
+table.tmtCalTable caption {
+	color: #585858;
+	font-size: larger;
+	font-weight: bold;
+	padding: 4px;
+	padding-bottom: 8px;
+}
+
+/* All cells */
+table.tmtCalTable td {
+	border: 1px solid #98AEEA;
+	padding: 0;
+}
+
+/* Day names */
+table.tmtCalTable th {
+	background-color: #D4DAE6;
+	border: 1px solid #98AEEA;
+	color: #585858;
+}
+
+/* Cell containing a day */
+table.tmtCalTable td.tmtCalDayCell {
+	vertical-align: top;
+}
+
+/* Day, as number */
+table.tmtCalTable td.tmtCalDayCell div.tmtCalDay {
+	background-color: #ECECEC;
+	border-bottom: 1px solid #98AEEA;
+	color: #585858;
+	padding: 2px;
+	text-align: center;
+}
+
+/* Empty cell */
+table.tmtCalTable td.tmtCalEmptyCell {
+	
+}
+
+/* Container for event's links */
+table.tmtCalTable div.tmtCalEvents {
+	min-height: 3em;
+}
+
+/* Links to event detail */
+table.tmtCalTable a.tmtCalEventLink {
+	display: block;
+	margin: 3px;
+	padding: 3px;
+	text-decoration: none;
+}
+
+/* Navbar container */
+div.tmtCalNavbar {
+}
+
+/* Navbar month menus */
+div.tmtCalNavbar select.tmtCalMonthSelect {
+	width: 8em;
+}
+
+/* Navbar year menus */
+div.tmtCalNavbar select.tmtCalYearSelect {
+	width: 6em;
+}
+
+/* Navbar categories menus */
+div.tmtCalNavbar select.tmtCalCatSelect {
+	width: 10em;
+}
+
+/* Navbar menu cell */
+div.tmtCalNavbar td.tmtCalMenuCell {
+	text-align: center;
+}
+
+/* Navbar table */
+div.tmtCalNavbar table {
+	padding: 4px;
+	width: 100%;
+}
+
+/* Navbar forward cell */
+div.tmtCalNavbar table td.tmtCalNavbarBackForward {
+	text-align: right;
+}
+
+/* Navbar back and forward links */
+div.tmtCalNavbar table td a{
+	color: #98AEEA;
+	font-weight: bold;
+	text-decoration: none;
+}

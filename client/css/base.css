@@ -1,0 +1,23 @@
+a {
+	color: #333333;
+	text-decoration: none;
+}
+
+a img {
+	border: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+div#langBar {
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+html, body {
+	color: #333333;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}

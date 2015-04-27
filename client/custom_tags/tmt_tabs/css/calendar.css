@@ -1,0 +1,45 @@
+body {
+	margin: 8px;
+}
+
+div.tmtPanel {
+	display: none;
+	overflow: auto;
+	padding: 10px;
+}
+
+div.tmtPanelGroup {
+	background-color: #FFFFFF;
+	border: 1px;
+	border-color: #999999;
+	border-style: solid;
+	clear: both;
+	width: 100%;
+}
+
+div.tmtTabs a.tmtTab {
+	background-color: #E8E8E8;
+	border: 1px;
+	border-bottom: 0px;
+	border-color: #999999;
+	border-style: solid;
+	color: #000000;
+	display: block;
+	float: left;
+	font-weight: bold;
+	height: 14px;
+	padding: 5px;
+	position: relative;
+	text-decoration: none;
+	top: 1px;
+}
+
+div.tmtTabs a.tmtTabSelected {
+	background-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+	border-style: solid !important;
+	border-top: 1px;
+	color: #000000;
+	height: 15px;
+	top: 1px;
+}

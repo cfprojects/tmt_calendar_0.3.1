@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TMT Calendar</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="style_form.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="docBlock" id="mainDoc">
+	<h1>TMT Calendar</h1>
+	<p>TMT Calendar is a ColdFusion driven calendar application designed from the very beginning to be used inside multi-language websites, but it can be as easily used for single-language environments. It offers a user friendly, Ajax-driven administrator GUI, the layout it totally CSS-driven, and the code can be easily extended</p>
+	<p>Copyright &copy; 2009 Massimocorner.com <br />
+	Developed 2009 Massimo Foti (massimo@massimocorner.com)</p>
+</div>
+<div class="docBlock">
+	<h3>Requirements</h3>
+	<ul>
+		<li>ColdFusion 8 or above. </li>
+		<li>Currently the application supports either SQL Server 2005 or above and MySQL 5 or above. Support for PostgreSQL is planned, but not yet available</li>
+	</ul>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Patch for CFImage and Image functions in ColdFusion 8.0.1</h3>
+	<p>To properly use this application in ColdFusion 8.0.1 you should <a href="http://kb.adobe.com:80/selfservice/viewContent.do?externalId=kb403411">apply this hotfix first</a></p>
+</div>
+<div class="docBlock">
+	<h3>Installation</h3>
+	<p>After unziping the installation package, you will have two directories, client and install. The client folder represents the calendar application.<br />
+If your web site will only contain the calendar, then his folder will be your web root. The install folder contains miscellaneous files to help you during the installation process. This folder should be removed from your web root</p>
+	<ul>
+		<li>Decide which database you want to use. In the install folder you will find a <a href="SQL Server schema.sql">SQL Server schema.sql</a> and <a href="MySQL schema.sql">MySQL schema.sql</a>. Pick the one you plan on using it and set up a database manually, using your favorite database UI</li>
+		<li>Set up a datasource pointing to your database. </li>
+		<li>Open /config/calendar.cfm</li>
+		<li>Find the &quot;Database&quot; section and edit the entries for <em>dsn</em>, <em>database, dsnUsername</em> and <em>dsnPassword</em></li>
+		<li>Set the <em>dsn</em> value to what you set in the ColdFusion Administrator. If you prefer to store username and password inside the ColdFusion Administrator you can leave <em>dsnUsername</em> and <em>dsnPassword</em> empty</li>
+		<li>Repeat the same steps for /config/general.cfm (used by DataMgr)</li>
+		<li>Finally, you should open Application.cfc and change the value of <em>this.errorEmail, this.smtpServer, this.smtpUsername</em> and <em>this.smtpPassword</em></li>
+	</ul>
+	<p>Now you need to enter some basic data for languages, skins and categories. In the install folder you will find a <a href="SQL Server data.sql">SQL Server data.sql</a> and <a href="MySQL data.sql">MySQL data.sql</a>. Pick the one that matches your RDMS</p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Data entry and Administrator GUI</h3>
+	<p>All data entry for events, categories and skins can be performed using the Administrator GUI located under the /admin folder</p>
+	<p>The Administrator GUI isn't password protected. You are expected to use whatever authentication mechanism fits your needs</p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Add more languages</h3>
+	<p>In order to add more languages you have to perform the following steps:</p>
+	<ul>
+		<li>Add an entry to the languages table. Use a two letter abbreviation inside the lang_abbrev field</li>
+		<li>Add another configuration file inside the config folder. Give it a name that matches your language abbreviation (like local_es.cfm for spanish)</li>
+		<li>Open /config/general.cfm and add your language abbreviation to the <em>langList</em> entry</li>
+		<li>Edit /custom_tags/layout/ langbar.cfm to add another entry to the language switching links</li>
+		<li>Restart the application (see below)</li>
+	</ul>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Use one single language</h3>
+	<p>In order to use only one language you have to perform the following steps:</p>
+	<ul>
+		<li>Delete all the entries from the languages table apart one</li>
+		<li>Delete all the local_xx.cfm files inside the config folder, apart one</li>
+		<li>Open /config/general.cfm and edit the langList entry to allow only one language</li>
+		<li>Open /config/general.cfm and edit the langDefault entry</li>
+		<li>Remove /custom_tags/layout/ langbar.cfm and any code that call it</li>
+		<li>Restart the application (see below)</li>
+	</ul>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>License</h3>
+	<p>This application is distributed under a <a href="license.txt">GPL 2 license</a>. This impose some restrictions, I suggest to read more on <a href="http://en.wikipedia.org/wiki/GNU_General_Public_License">Wikipedia</a>, over there you will find also a <a href="http://en.wikipedia.org/wiki/GNU_General_Public_License#External_links">good collection of relevant links</a></p>
+	<cite>At its core. the GPL is a very simple license; if I share my code with you, you should share your code with me. The GPL imposes downstream restrictions on later uses of the code to prevent anyone from taking away the benefits of the shared code. Within the world of the GPL, code shared once is code shared forever. (Van Lindberg)</cite>
+	<p>If you would like to use this application under different terms, please contact the author at <a href="mailto:massimo@massimocorner.com">massimo@massimocorner.com</a></p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>About encoding and charset</h3>
+	<p>The application is designed to support multiple languages, so it uses unicode (utf-8) as encoding. If you plan to use  non-Latin languages, your DSN needs to be set up correctly. See this blog entry by Paul Hastings for additional information:<br />
+	<a href="http://www.sustainablegis.com/blog/cfg11n/index.cfm?mode=entry&amp;entry=F9553D86-20ED-7DEE-2A913AFD8651643F">http://www.sustainablegis.com/blog/cfg11n/index.cfm?mode=entry&amp;entry=F9553D86-20ED-7DEE-2A913AFD8651643F</a></p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Browser compatibility</h3>
+	<p>Currently the application supports IE 7+, FF 2+ and Safari 3+<br />
+		The Administrator GUI doesn't supports IE 6 but the client GUI is still usable in this browser</p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Add and manage skins</h3>
+	<p>Additional skins can be added using the Administrator GUI. For each skin to work properly a matching CSS class must be created inside /custom_tags/tmt_calendar/css/skins</p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>Custom table names</h3>
+	<p>If you prefer to customize names of tables and views you can edit the database's schema, then change the relevant entries inside /config/calendar.cfm. Don't forget to restart the application after this (see below)</p>
+	<p>Please note that in order to change table names you may need to edit some database views as well</p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>How to "restart" the application</h3>
+	<p>In order to "restart" the application, visit any page with ?init=1 at the end of the URL</p>
+</div>
+<div class="docBlock" id="mainDoc">
+	<h3>DataMgr</h3>
+	<p>TMT calendar internally uses <a href="http://www.bryantwebconsulting.com/docs/datamgr/">DataMgr</a> to simplify CRUD operations on the database</p>
+</div>
+</body>
+</html>

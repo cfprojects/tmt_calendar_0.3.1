@@ -1,0 +1,156 @@
+@charset "iso-8859-1";
+
+/*******************************************************************************
+
+ LAYOUT INFORMATION: describes box model, positioning, z-order
+
+ *******************************************************************************/
+
+/* The outermost container of the Menu Bar, an auto width box with no margin or padding */
+ul.MenuBarHorizontal
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 100%;
+	cursor: default;
+	width: auto;
+}
+/* Set the active Menu Bar with this class, currently setting z-index to accomodate IE rendering bug: http://therealcrisp.xs4all.nl/meuk/IE-zindexbug.html */
+ul.MenuBarActive
+{
+	z-index: 1000;
+}
+/* Menu item containers, position children relative to this container and are a fixed width */
+ul.MenuBarHorizontal li
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 100%;
+	position: relative;
+	text-align: left;
+	cursor: pointer;
+	width: 6em;
+	float: left;
+}
+/* Submenus should appear below their parent (top: 0) with a higher z-index, but they are initially off the left side of the screen (-1000em) */
+ul.MenuBarHorizontal ul
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 100%;
+	z-index: 1020;
+	cursor: default;
+	width: 8.2em;
+	position: absolute;
+	left: -1000em;
+}
+/* Submenu that is showing with class designation MenuBarSubmenuVisible, we set left to auto so it comes onto the screen below its parent menu item */
+ul.MenuBarHorizontal ul.MenuBarSubmenuVisible
+{
+	left: auto;
+}
+/* Menu item containers are same fixed width as parent */
+ul.MenuBarHorizontal ul li
+{
+	width: 8.2em;
+}
+/* Submenus should appear slightly overlapping to the right (95%) and up (-5%) */
+ul.MenuBarHorizontal ul ul
+{
+	position: absolute;
+	margin: -5% 0 0 95%;
+}
+/* Submenu that is showing with class designation MenuBarSubmenuVisible, we set left to 0 so it comes onto the screen */
+ul.MenuBarHorizontal ul.MenuBarSubmenuVisible ul.MenuBarSubmenuVisible
+{
+	left: auto;
+	top: 0;
+}
+
+/*******************************************************************************
+
+ DESIGN INFORMATION: describes color scheme, borders, fonts
+
+ *******************************************************************************/
+ 
+/* Main bar */
+ ul.MenuBarHorizontal
+{
+	background-color: #D7D7E5;
+	background-image: url(../images/menubar/office2003_silver_menu_left.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	font-family: Tahoma, Verdana, "MS Serif", "New York", serif;
+	font-size: 11px;
+	height: 24px;
+	padding:3px 10px 0 10px;
+}
+
+/* Menu items */
+ul.MenuBarHorizontal a
+{
+	color: #000000;
+	cursor: pointer;
+	display: block;
+	padding: 3px 6px;
+	text-decoration: none;
+}
+
+/* Menu items over */
+ul.MenuBarHorizontal a.MenuBarItemHover 
+{
+	background-image: url(../images/menubar/office2003_silver_background_item.gif) !important;
+	background-position: bottom !important;
+	background-repeat: repeat !important;
+	background-color: #FFF6CF !important;
+	border: 1px solid #4B4B6F;
+	padding: 2px 5px; /* Decrease padding to compensate for border */
+}
+
+/* Submenus */
+ul.MenuBarHorizontal ul
+{
+	background-image: url(../images/menubar/office2003_silver_menu_background.gif) !important;
+	background-repeat: repeat-y !important;
+	border: 1px solid #4B4B6F;
+	padding: 2px;
+}
+
+ul.MenuBarHorizontal ul a
+{
+	text-indent: 25px;
+}
+
+/* Second level containing third level */
+ul.MenuBarHorizontal ul li a.MenuBarItemSubmenu
+{
+	background-image: url(../images/menubar/office2003_arrow.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*******************************************************************************
+
+ BROWSER HACKS: the hacks below should not be changed unless you are an expert
+
+ *******************************************************************************/
+
+/* HACK FOR IE: to make sure the sub menus show above form controls, we underlay each submenu with an iframe */
+ul.MenuBarHorizontal iframe
+{
+	position: absolute;
+	z-index: 1010;
+	filter:alpha(opacity:0.1);
+}
+/* HACK FOR IE: to stabilize appearance of menu items; the slash in float is to keep IE 5.0 from parsing */
+@media screen, projection
+{
+	ul.MenuBarHorizontal li.MenuBarItemIE
+	{
+		display: inline;
+		f\loat: left;
+	}
+}
